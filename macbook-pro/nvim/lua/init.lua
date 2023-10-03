@@ -1,3 +1,10 @@
+require('mason').setup{}
+require('mason-lspconfig').setup{
+    ensure_installed = {
+        "lua_ls"
+    }
+}
+
 require('lualine').setup{extensions={'chadtree'}}
 require('leap').add_default_mappings()
 
