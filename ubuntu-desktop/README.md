@@ -1,12 +1,24 @@
 # Ubuntu desktop 
 
+## Git configuration
+```
+git config --global user.name "Ran Liu"
+git config --global user.email "xabsox@gmail.com"
+git config --global core.editor "nvim"
+```
+
 ## Software: 
+- i3
 - google-chrome
 - nvim
 - tmux
 - cmake
-- R, rstudio
+- R, rstudio, and dependencies
 - vscode (code)
+- g++
+- rustup
+- alacritty
+- Patched fonts (DejaVuSans Nerd Fonts Monospace)
 
 ## Nvim setup
 From [https://github.com/wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
