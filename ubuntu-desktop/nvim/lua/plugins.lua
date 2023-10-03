@@ -15,6 +15,7 @@ return require('packer').startup(function()
     use {'ms-jpq/coq.thirdparty', branch='3p'}
     use {'ms-jpq/chadtree', branch='chad'}
 
+    use {'lewis6991/gitsigns.nvim', config=function() require('gitsigns').setup() end}
     use {'nvim-lualine/lualine.nvim', requires={'kyazdani42/nvim-web-devicons', opt=true}}
     use {'numToStr/Comment.nvim', config=function() require('Comment').setup() end}
     use {'nvim-telescope/telescope.nvim', tag='0.1.0', requires={{'nvim-lua/plenary.nvim'}}}

@@ -1,6 +1,6 @@
 require('mason').setup{}
 require('mason-lspconfig').setup {
-    ensure_installed = { "lua_ls" }
+    ensure_installed = { "lua_ls", "marksman" }
 }
 
 require('lualine').setup{extensions={'chadtree'}}
@@ -20,3 +20,4 @@ if vim.fn.executable('R') == 1 then
 end
 
 require'lspconfig'.lua_ls.setup{}
+require'lspconfig'.marksman.setup{}
