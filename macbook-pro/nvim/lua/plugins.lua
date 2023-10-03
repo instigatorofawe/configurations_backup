@@ -3,8 +3,10 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
-
     use 'neovim/nvim-lspconfig'
+
+    use 'm4xshen/autoclose.nvim'
+
     use {'ms-jpq/coq_nvim', branch='coq'}
     use {'ms-jpq/coq.artifacts', branch='artifacts'}
     use {'ms-jpq/coq.thirdparty', branch='3p'}

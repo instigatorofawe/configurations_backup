@@ -1,6 +1,8 @@
 #!/bin/sh
 cp -rf ~/.config/nvim .
-cp -rf ~/.config/htop .
+rm -rf nvim/plugin
+rm -rf nvim/yay-git
+
 cp ~/.yabairc .
 cp ~/.skhdrc .
 cp ~/.alacritty.yml .
