@@ -8,17 +8,23 @@ git config --global core.editor "nvim"
 ```
 
 ## Software: 
-- i3
-- google-chrome
-- nvim
-- tmux
-- cmake
-- R, rstudio, and dependencies
-- vscode (code)
-- g++
-- rustup
-- alacritty
-- Patched fonts (DejaVuSans Nerd Fonts Monospace)
+- i3 (apt)
+- tmux (apt)
+- R (CRAN, apt)
+- Dependencies for tidyverse, other R libraries (apt)
+- picom (apt)
+- xclip (apt)
+- maim (apt)
+- nitrogen (apt)
+- htop (snap)
+- nvtop (snap)
+- nvim (snap)
+- rustup (snap)
+- alacritty (cargo install)
+- google-chrome (.deb)
+- rstudio (.deb)
+- vscode (code) (.deb)
+- Patched fonts (DejaVuSans Monospace)
 
 ## Nvim setup
 From [https://github.com/wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
