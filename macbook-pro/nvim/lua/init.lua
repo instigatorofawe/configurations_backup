@@ -1,7 +1,7 @@
 require('mason').setup{}
 require('mason-lspconfig').setup{
     ensure_installed = {
-        "lua_ls"
+        "lua_ls", "marksman"
     }
 }
 
@@ -18,10 +18,6 @@ if vim.fn.executable('pyright') == 1 then
     require'lspconfig'.pyright.setup{}
 end
 
-if vim.fn.executable('lua-language-server') == 1 then
-    require'lspconfig'.lua_ls.setup{}
-end
-
 if vim.fn.executable('R') == 1 then
     require'lspconfig'.r_language_server.setup{}
 end
@@ -30,3 +26,5 @@ if vim.fn.executable('sourcekit-lsp') == 1 then
     require'lspconfig'.sourcekit.setup{}
 end
 
+require'lspconfig'.marksman.setup{}
+require'lspconfig'.lua_ls.setup{}
