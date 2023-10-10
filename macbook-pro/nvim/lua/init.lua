@@ -1,7 +1,7 @@
 require('mason').setup{}
 require('mason-lspconfig').setup{
     ensure_installed = {
-        "lua_ls", "marksman"
+        "lua_ls", "marksman", "bashls"
     }
 }
 
@@ -28,3 +28,4 @@ end
 
 require'lspconfig'.marksman.setup{}
 require'lspconfig'.lua_ls.setup{}
+require'lspconfig'.bashls.setup{}

@@ -12,7 +12,7 @@ git config --global core.editor "nvim"
 - i3 (apt)
 - tmux (apt)
 - R (CRAN, apt)
-- Dependencies for tidyverse, other R libraries (apt)
+- Dependencies for tidyverse, other R libraries (apt): `sudo apt install libssl-dev libcurl4-openssl-dev unixodbc-dev libxml2-dev libmariadb-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev`
 - picom (apt)
 - xclip (apt)
 - maim (apt)
