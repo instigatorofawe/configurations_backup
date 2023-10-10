@@ -1,4 +1,4 @@
-# Nvim setup
+# Macbook pro setup
 
 ## Git configuration
 ```
@@ -13,6 +13,10 @@ https://brew.sh/
 ```
 
 ## Software:
+- yabai (brew)
+- skhdrc (brew)
+- nvim (brew)
+- alacritty (brew)
 
 ## Packer.nvim setup
 From [https://github.com/wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)

@@ -8,6 +8,7 @@ git config --global core.editor "nvim"
 ```
 
 ## Software: 
+- git (apt)
 - i3 (apt)
 - tmux (apt)
 - R (CRAN, apt)
