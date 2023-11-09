@@ -1,7 +1,7 @@
 require('mason').setup{}
 require('mason-lspconfig').setup{
     ensure_installed = {
-        "lua_ls", "marksman", "bashls"
+        "lua_ls", "marksman", "bashls", "texlab"
     }
 }
 
@@ -29,3 +29,4 @@ end
 require'lspconfig'.marksman.setup{}
 require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.bashls.setup{}
+require'lspconfig'.texlab.setup{}
