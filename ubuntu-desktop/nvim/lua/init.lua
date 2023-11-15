@@ -1,6 +1,6 @@
 require('mason').setup{}
 require('mason-lspconfig').setup {
-    ensure_installed = { "lua_ls", "marksman" }
+    ensure_installed = { "lua_ls", "marksman", "ltex" }
 }
 
 require('lualine').setup{extensions={'chadtree'}}
@@ -21,3 +21,4 @@ end
 
 require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.marksman.setup{}
+require'lspconfig'.ltex.setup{}
