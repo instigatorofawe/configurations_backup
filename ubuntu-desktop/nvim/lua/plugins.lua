@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-web-devicons'
     use 'ggandor/leap.nvim'
 
+    use 'tanvirtin/monokai.nvim'
+
     vim.cmd([[
       augroup packer_user_config
         autocmd!

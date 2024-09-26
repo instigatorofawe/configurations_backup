@@ -5,7 +5,7 @@ set ff=unix
 set clipboard^=unnamed,unnamedplus
 
 syntax enable
-colorscheme monokai
+" colorscheme monokai
 
 set cursorline
 set colorcolumn=120
