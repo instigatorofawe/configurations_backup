@@ -35,7 +35,6 @@ hi Normal guibg=NONE ctermbg=NONE
 
 nnoremap <leader>v <cmd>CHADopen<cr>
 nnoremap <leader>t <cmd>ToggleTerm<cr>
-nnoremap <C-LeftMouse> <LeftMouse><C-w><C-]>
 tnoremap <Esc> <C-\><C-n>
 
 lua require('plugins')
