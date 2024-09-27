@@ -8,7 +8,6 @@ require('mason-lspconfig').setup{
 }
 
 require('monokai-pro').setup{}
-vim.cmd([[colorscheme monokai-pro]])
 
 require('lualine').setup{extensions={'chadtree'}}
 require('leap').add_default_mappings()
