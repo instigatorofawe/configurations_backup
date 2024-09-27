@@ -14,8 +14,12 @@ vim.g.coq_settings = {
 
 require('coq')
 
-if vim.fn.executable('pyright') == 1 then
-    require'lspconfig'.pyright.setup{}
+-- if vim.fn.executable('pyright') == 1 then
+--     require'lspconfig'.pyright.setup{}
+-- end
+
+if vim.fn.executable('basedpyright') == 1 then
+    require'lspconfig'.basedpyright.setup{}
 end
 
 -- if vim.fn.executable('R') == 1 then

@@ -1,7 +1,9 @@
 syntax enable
-colorscheme monokai
 
 set clipboard=unnamedplus
+
+colorscheme catppuccin-macchiato
+" colorscheme sonokai
 
 set cursorline
 set colorcolumn=120

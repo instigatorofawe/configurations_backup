@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
 
     use 'nvim-tree/nvim-web-devicons'
     use 'ggandor/leap.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use 'sainnhe/sonokai'
+
 
     vim.cmd([[
       augroup packer_user_config
