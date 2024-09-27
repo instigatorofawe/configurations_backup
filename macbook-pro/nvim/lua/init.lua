@@ -1,9 +1,14 @@
+require('autoclose').setup()
+
 require('mason').setup{}
 require('mason-lspconfig').setup{
     ensure_installed = {
         "lua_ls", "marksman", "bashls", "texlab", "rust_analyzer"
     }
 }
+
+require('monokai-pro').setup{}
+vim.cmd([[colorscheme monokai-pro]])
 
 require('lualine').setup{extensions={'chadtree'}}
 require('leap').add_default_mappings()

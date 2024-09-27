@@ -6,6 +6,9 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
 
     use 'm4xshen/autoclose.nvim'
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup()
+    end}
 
     use {'ms-jpq/coq_nvim', branch='coq'}
     use {'ms-jpq/coq.artifacts', branch='artifacts'}
@@ -19,8 +22,7 @@ return require('packer').startup(function(use)
 
     use 'nvim-tree/nvim-web-devicons'
     use 'ggandor/leap.nvim'
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use 'sainnhe/sonokai'
+    use 'loctvl842/monokai-pro.nvim'
 
 
     vim.cmd([[

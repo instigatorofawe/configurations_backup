@@ -2,7 +2,7 @@ syntax enable
 
 set clipboard=unnamedplus
 
-colorscheme catppuccin-macchiato
+" colorscheme catppuccin-macchiato
 " colorscheme sonokai
 
 set cursorline
@@ -33,6 +33,8 @@ nnoremap k gk
 hi Normal ctermbg=none
 
 nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <leader>t <cmd>ToggleTerm<cr>
+tnoremap <Esc> <C-\><C-n>
 
 lua require ('plugins')
 lua require ('init')
