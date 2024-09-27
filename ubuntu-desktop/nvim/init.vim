@@ -34,6 +34,8 @@ nnoremap k gk
 hi Normal guibg=NONE ctermbg=NONE
 
 nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <leader>t <cmd>ToggleTerm<cr>
+tnoremap <Esc> <C-\><C-n>
 
 lua require('plugins')
 lua require('init')
