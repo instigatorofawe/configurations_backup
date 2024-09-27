@@ -5,7 +5,7 @@ set ff=unix
 set clipboard^=unnamed,unnamedplus
 
 syntax enable
-" colorscheme monokai
+colorscheme monokai-pro
 
 set cursorline
 set colorcolumn=120
@@ -39,3 +39,10 @@ tnoremap <Esc> <C-\><C-n>
 
 lua require('plugins')
 lua require('init')
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
