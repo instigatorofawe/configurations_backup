@@ -23,12 +23,16 @@ require('coq')
 -- end
 
 if vim.fn.executable('basedpyright') == 1 then
-    require'lspconfig'.basedpyright.setup{}
+    require'lspconfig'.basedpyright.setup{
+        on_attach = function(client, bufnr)
+            vim.lsp.inlay_hint.enable(true, {bufnr})
+        end
+    }
 end
 
--- if vim.fn.executable('R') == 1 then
---     require'lspconfig'.r_language_server.setup{}
--- end
+if vim.fn.executable('R') == 1 then
+    require'lspconfig'.r_language_server.setup{}
+end
 
 -- if vim.fn.executable('sourcekit-lsp') == 1 then
 --     require'lspconfig'.sourcekit.setup{}
@@ -46,3 +50,10 @@ require'lspconfig'.rust_analyzer.setup{
     
 }
 
+require('quarto').setup{}
+require('otter').setup{
+    buffers = {
+        set_filetype = true,
+        write_to_disk = true
+    }
+}

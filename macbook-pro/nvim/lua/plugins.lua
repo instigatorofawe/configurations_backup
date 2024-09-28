@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
     use 'ggandor/leap.nvim'
     use 'loctvl842/monokai-pro.nvim'
 
+    use {'quarto-dev/quarto-nvim', requires={'jmbuhr/otter.nvim', 'nvim-treesitter/nvim-treesitter'}}
 
     vim.cmd([[
       augroup packer_user_config
