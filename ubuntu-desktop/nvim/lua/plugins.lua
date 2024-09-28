@@ -10,9 +10,9 @@ return require('packer').startup(function(use)
       require("toggleterm").setup()
     end}
 
-    use {'ms-jpq/coq_nvim', branch='coq'}
-    use {'ms-jpq/coq.artifacts', branch='artifacts'}
-    use {'ms-jpq/coq.thirdparty', branch='3p'}
+    -- use {'ms-jpq/coq_nvim', branch='coq'}
+    -- use {'ms-jpq/coq.artifacts', branch='artifacts'}
+    -- use {'ms-jpq/coq.thirdparty', branch='3p'}
     use {'ms-jpq/chadtree', branch='chad'}
 
     use {'nvim-lualine/lualine.nvim', requires={'kyazdani42/nvim-web-devicons', opt=true}}
@@ -24,6 +24,19 @@ return require('packer').startup(function(use)
     use 'ggandor/leap.nvim'
     use 'loctvl842/monokai-pro.nvim'
 
+    use {'quarto-dev/quarto-nvim', requires={'jmbuhr/otter.nvim', 'nvim-treesitter/nvim-treesitter'}}
+
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = { 
+            'hrsh7th/cmp-nvim-lsp', 
+            'hrsh7th/cmp-buffer', 
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline'
+            -- 'SirVer/ultisnips',
+            -- 'quangnguyen30192/cmp-nvim-ultisnips'
+        }
+    }
 
     vim.cmd([[
       augroup packer_user_config
