@@ -33,7 +33,7 @@ nnoremap j gj
 nnoremap k gk
 hi Normal guibg=NONE ctermbg=NONE
 
-nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <leader>v <cmd>NvimTreeToggle<cr>
 nnoremap <leader>t <cmd>ToggleTerm<cr>
 tnoremap <Esc> <C-\><C-n>
 
