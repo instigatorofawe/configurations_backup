@@ -4,5 +4,5 @@ cp .alacritty.yml .
 cp .skhdcrc ~
 cp .yabairc ~
 
-cp -r nvim ~/.config
+cp -rf ../nvim ~/.config
 

@@ -1,0 +1,245 @@
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" 
+if not (vim.uv or vim.loop).fs_stat(lazypath) then 
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git" 
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }) 
+    if vim.v.shell_error ~= 0 then 
+        vim.api.nvim_echo({ 
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" }, 
+            { out, "WarningMsg" }, 
+            { "\nPress any key to exit..." }, 
+        }, true, {}) 
+        vim.fn.getchar() 
+        os.exit(1) 
+    end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = " " 
+
+--- Begin settings
+vim.opt.clipboard = "unnamedplus"
+vim.opt.ff ="unix"
+
+vim.opt.cursorline = true
+vim.opt.colorcolumn = "80,120"
+vim.opt.textwidth = 120
+vim.opt.ruler = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+vim.opt.wildmenu = true
+vim.opt.lazyredraw = true
+vim.opt.showmatch = true
+
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+
+vim.keymap.set('n', 'j', [[gj]])
+vim.keymap.set('n', 'k', [[gk]])
+
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
+--- End settings
+
+-- Setup lazy.nvim
+require("lazy").setup({ 
+    spec = { -- add your plugins here
+        "loctvl842/monokai-pro.nvim",
+
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig", 
+        "nvim-tree/nvim-tree.lua",
+        { 
+            'nvim-lualine/lualine.nvim',
+            dependencies = {
+                'nvim-tree/nvim-web-devicons' 
+            } 
+        },
+
+        "m4xshen/autoclose.nvim",
+        {
+            "akinsho/toggleterm.nvim",
+            version = "*",
+            opts = {
+                open_mapping = [[<leader>t]]
+            }
+        },
+
+        "ggandor/leap.nvim",
+        {
+            "quarto-dev/quarto-nvim",
+            dependencies = {
+                "jmbuhr/otter.nvim",
+                "nvim-treesitter/nvim-treesitter"
+            }
+        },
+        { 
+            "hrsh7th/nvim-cmp",
+            dependencies = { 
+                'hrsh7th/cmp-nvim-lsp', 
+                'hrsh7th/cmp-buffer', 
+                'hrsh7th/cmp-path', 
+                'hrsh7th/cmp-cmdline'
+            }
+
+        }
+    },
+    -- Configure any other settings here. See the documentation for more details. 
+    -- colorscheme that will be used when installing plugins. 
+    install = { colorscheme = { "monokai-pro" } }, 
+    -- automatically check for plugin updates 
+    checker = { enabled = true },
+})
+
+--- Plugin setup
+require('autoclose').setup()
+
+require('mason').setup{}
+require('mason-lspconfig').setup{
+    ensure_installed = {
+        "lua_ls", "marksman", "bashls", "texlab", "rust_analyzer"
+    }
+}
+require('leap').create_default_mappings()
+require('quarto').setup{}
+require('otter').setup{
+    buffers = {
+        set_filetype = true,
+        write_to_disk = true
+    }
+}
+
+require("monokai-pro").setup({})
+vim.cmd [[colorscheme monokai-pro]]
+
+local cmp = require('cmp')
+
+cmp.setup({
+    snippet = {-- REQUIRED - you must specify a snippet engine 
+        expand = function(args)
+        vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+) 
+        end,
+    },
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({ 
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4), 
+        ['<C-f>'] = cmp.mapping.scroll_docs(4), 
+        ['<C-Space>'] = cmp.mapping.complete(), 
+        ['<C-e>'] = cmp.mapping.abort(), 
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({ 
+        { name = 'nvim_lsp' }, 
+    }, { 
+        { name = 'buffer' }, 
+    }) 
+})
+
+
+  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, { 
+    mapping = cmp.mapping.preset.cmdline(), 
+    sources = { 
+        { name = 'buffer' } 
+    }
+})
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false }
+})
+
+  -- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require'lspconfig'.marksman.setup{
+    capabilities = capabilities
+}
+require'lspconfig'.lua_ls.setup{
+    capabilities = capabilities
+}
+require'lspconfig'.bashls.setup{
+    capabilities = capabilities
+}
+require'lspconfig'.texlab.setup{
+    capabilities = capabilities
+}
+require'lspconfig'.rust_analyzer.setup{
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        vim.lsp.inlay_hint.enable(true, {bufnr})
+    end
+}
+
+if vim.fn.executable('basedpyright') == 1 then
+    require'lspconfig'.basedpyright.setup{
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+            vim.lsp.inlay_hint.enable(true, {bufnr})
+        end
+    }
+end
+
+if vim.fn.executable('R') == 1 then
+    require'lspconfig'.r_language_server.setup{
+        capabilities = capabilities
+    }
+end
+
+vim.g.nvim_tree_respect_buf_cwd = 1
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+  update_focused_file = {
+      enable = true,
+      update_cwd = true
+  }
+})
+
+require('lualine').setup{
+    extensions={'lazy', 'nvim-tree'},
+    options={theme='monokai-pro'}
+}
+
+vim.cmd [[filetype plugin indent on]]
+
+-- vim.keymap.set('n', '<leader>t', ':ToggleTerm<cr>')
+vim.keymap.set('n', '<leader>v', ':NvimTreeToggle<cr>')
