@@ -30,7 +30,6 @@ vim.g.maplocalleader = " "
 
 --- Begin settings
 vim.opt.clipboard = "unnamedplus"
-vim.opt.ff ="unix"
 
 vim.opt.cursorline = true
 vim.opt.colorcolumn = "80,120"
@@ -67,31 +66,6 @@ require("lazy").setup({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig", 
-        "nvim-tree/nvim-tree.lua",
-        { 
-            'nvim-lualine/lualine.nvim',
-            dependencies = {
-                'nvim-tree/nvim-web-devicons' 
-            } 
-        },
-
-        "m4xshen/autoclose.nvim",
-        {
-            "akinsho/toggleterm.nvim",
-            version = "*",
-            opts = {
-                open_mapping = [[<leader>t]]
-            }
-        },
-
-        "ggandor/leap.nvim",
-        {
-            "quarto-dev/quarto-nvim",
-            dependencies = {
-                "jmbuhr/otter.nvim",
-                "nvim-treesitter/nvim-treesitter"
-            }
-        },
         { 
             "hrsh7th/nvim-cmp",
             dependencies = { 
@@ -101,7 +75,40 @@ require("lazy").setup({
                 'hrsh7th/cmp-cmdline'
             }
 
-        }
+        },
+        {
+            "quarto-dev/quarto-nvim",
+            dependencies = {
+                "jmbuhr/otter.nvim",
+                "nvim-treesitter/nvim-treesitter"
+            }
+        },
+
+        {
+            "akinsho/toggleterm.nvim",
+            version = "*",
+            opts = {
+                open_mapping = [[<leader>t]]
+            }
+        },
+        "nvim-tree/nvim-tree.lua",
+        { 
+            'nvim-lualine/lualine.nvim',
+            dependencies = {
+                'nvim-tree/nvim-web-devicons' 
+            } 
+        },
+
+        "m4xshen/autoclose.nvim",
+        "ggandor/leap.nvim",
+        "numToStr/Comment.nvim",
+        "lewis6991/gitsigns.nvim",
+        {
+            "nvim-telescope/telescope.nvim",
+            dependencies = {
+                "nvim-lua/plenary.nvim"
+            }
+        },
     },
     -- Configure any other settings here. See the documentation for more details. 
     -- colorscheme that will be used when installing plugins. 
@@ -119,6 +126,8 @@ require('mason-lspconfig').setup{
         "lua_ls", "marksman", "bashls", "texlab", "rust_analyzer"
     }
 }
+require('Comment').setup()
+require('gitsigns').setup()
 require('leap').create_default_mappings()
 require('quarto').setup{}
 require('otter').setup{
@@ -243,3 +252,8 @@ vim.cmd [[filetype plugin indent on]]
 
 -- vim.keymap.set('n', '<leader>t', ':ToggleTerm<cr>')
 vim.keymap.set('n', '<leader>v', ':NvimTreeToggle<cr>')
+
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<cr>')
+vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>fb', ':Telescope buffers<cr>')
+vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<cr>')
