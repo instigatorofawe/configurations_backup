@@ -88,7 +88,7 @@ require("lazy").setup({
             "akinsho/toggleterm.nvim",
             version = "*",
             opts = {
-                open_mapping = [[<leader>t]]
+                -- open_mapping = [[<leader>t]]
             }
         },
         "nvim-tree/nvim-tree.lua",
@@ -250,7 +250,7 @@ require('lualine').setup{
 
 vim.cmd [[filetype plugin indent on]]
 
--- vim.keymap.set('n', '<leader>t', ':ToggleTerm<cr>')
+vim.keymap.set('n', '<leader>t', ':ToggleTerm<cr>')
 vim.keymap.set('n', '<leader>v', ':NvimTreeToggle<cr>')
 
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<cr>')
