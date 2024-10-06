@@ -74,22 +74,9 @@ require("lazy").setup({
                 'hrsh7th/cmp-path',
                 'hrsh7th/cmp-cmdline'
             }
-
         },
         {
-            "quarto-dev/quarto-nvim",
-            dependencies = {
-                "jmbuhr/otter.nvim",
-                "nvim-treesitter/nvim-treesitter"
-            }
-        },
-
-        {
-            "akinsho/toggleterm.nvim",
-            version = "*",
-            opts = {
-                -- open_mapping = [[<leader>t]]
-            }
+            "akinsho/toggleterm.nvim", version = "*",
         },
         "nvim-tree/nvim-tree.lua",
         {
@@ -98,8 +85,15 @@ require("lazy").setup({
                 'nvim-tree/nvim-web-devicons'
             }
         },
+        {
+            'windwp/nvim-autopairs',
+            event = "InsertEnter",
+            config = true
+            -- use opts = {} for passing setup options
+            -- this is equivalent to setup({}) function
+        },
 
-        "m4xshen/autoclose.nvim",
+        -- "m4xshen/autoclose.nvim",
         "ggandor/leap.nvim",
         "numToStr/Comment.nvim",
         "lewis6991/gitsigns.nvim",
@@ -119,7 +113,7 @@ require("lazy").setup({
 })
 
 --- Plugin setup
-require('autoclose').setup()
+-- require('autoclose').setup()
 
 require('mason').setup {}
 require('mason-lspconfig').setup {
@@ -147,13 +141,6 @@ require("conform").setup({
 require('Comment').setup()
 require('gitsigns').setup()
 require('leap').create_default_mappings()
-require('quarto').setup {}
-require('otter').setup {
-    buffers = {
-        set_filetype = true,
-        write_to_disk = true
-    }
-}
 
 require("monokai-pro").setup({})
 vim.cmd [[colorscheme monokai-pro]]
