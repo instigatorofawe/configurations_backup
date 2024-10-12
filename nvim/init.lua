@@ -114,6 +114,7 @@ require("lazy").setup({
 
 --- Plugin setup
 -- require('autoclose').setup()
+require("toggleterm").setup()
 
 require('mason').setup {}
 require('mason-lspconfig').setup {
