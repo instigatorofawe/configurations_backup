@@ -125,6 +125,7 @@ require("mason-lspconfig").setup({
 		"bashls",
 		"texlab",
 		"rust_analyzer",
+		"cmake",
 	},
 })
 
@@ -135,6 +136,8 @@ require("conform").setup({
 		python = { "isort", "black" },
 		-- You can customize some of the format options for the filetype (:help conform.format)
 		rust = { "rustfmt", lsp_format = "fallback" },
+		c = { "clang_format" },
+		cpp = { "clang_format" },
 		-- Conform will run the first available formatter
 	},
 	format_on_save = {
@@ -230,6 +233,12 @@ require("lspconfig").bashls.setup({
 	capabilities = capabilities,
 })
 require("lspconfig").texlab.setup({
+	capabilities = capabilities,
+})
+require("lspconfig").clangd.setup({
+	capabilities = capabilities,
+})
+require("lspconfig").cmake.setup({
 	capabilities = capabilities,
 })
 require("lspconfig").rust_analyzer.setup({
