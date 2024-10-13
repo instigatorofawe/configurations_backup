@@ -126,6 +126,7 @@ require("mason-lspconfig").setup({
 		"texlab",
 		"rust_analyzer",
 		"cmake",
+		"clangd",
 	},
 })
 
