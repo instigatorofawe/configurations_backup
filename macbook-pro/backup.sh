@@ -4,6 +4,6 @@ rm ../nvim/lazy-lock.json
 
 cp ~/.yabairc .
 cp ~/.skhdrc .
-cp ~/.alacritty.yml .
+cp ~/.alacritty.toml .
 cp ~/.tmux.conf .
 

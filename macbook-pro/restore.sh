@@ -1,6 +1,6 @@
 #!/bin/sh
 cp .tmux ~
-cp .alacritty.yml .
+cp .alacritty.toml .
 cp .skhdcrc ~
 cp .yabairc ~
 
