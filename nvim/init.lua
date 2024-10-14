@@ -127,6 +127,8 @@ require("mason-lspconfig").setup({
 		"rust_analyzer",
 		"cmake",
 		"clangd",
+		"angularls",
+		"ts_ls",
 	},
 })
 
@@ -203,9 +205,6 @@ cmp.setup.cmdline(":", {
 -- Set up lspconfig.
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-require("lspconfig").marksman.setup({
-	capabilities = capabilities,
-})
 require("lspconfig").lua_ls.setup({
 	capabilities = capabilities,
 
@@ -230,6 +229,15 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
+require("lspconfig").marksman.setup({
+	capabilities = capabilities,
+})
+require("lspconfig").angularls.setup({
+	capabilities = capabilities,
+})
+require("lspconfig").ts_ls.setup({
+	capabilities = capabilities,
+})
 require("lspconfig").bashls.setup({
 	capabilities = capabilities,
 })
@@ -244,7 +252,7 @@ require("lspconfig").cmake.setup({
 })
 require("lspconfig").rust_analyzer.setup({
 	capabilities = capabilities,
-	on_attach = function(client, bufnr)
+	on_attach = function(_, bufnr)
 		vim.lsp.inlay_hint.enable(true, { bufnr })
 	end,
 })
@@ -252,7 +260,7 @@ require("lspconfig").rust_analyzer.setup({
 if vim.fn.executable("basedpyright") == 1 then
 	require("lspconfig").basedpyright.setup({
 		capabilities = capabilities,
-		on_attach = function(client, bufnr)
+		on_attach = function(_, bufnr)
 			vim.lsp.inlay_hint.enable(true, { bufnr })
 		end,
 	})
