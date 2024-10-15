@@ -129,6 +129,7 @@ require("mason-lspconfig").setup({
 		"clangd",
 		"angularls",
 		"ts_ls",
+		"html",
 	},
 })
 
@@ -236,6 +237,9 @@ require("lspconfig").angularls.setup({
 	capabilities = capabilities,
 })
 require("lspconfig").ts_ls.setup({
+	capabilities = capabilities,
+})
+require("lspconfig").html.setup({
 	capabilities = capabilities,
 })
 require("lspconfig").bashls.setup({
