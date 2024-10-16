@@ -306,6 +306,7 @@ vim.cmd([[filetype plugin indent on]])
 vim.keymap.set("n", "<leader>t", ":ToggleTerm<cr>")
 vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<cr>")
 vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>")
+vim.keymap.set("n", "<leader>e", ":lua vim.diagnostic.open_float()<cr>")
 
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>")
