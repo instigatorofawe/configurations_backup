@@ -1,3 +1,4 @@
+vim.loader.enable()
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -127,7 +128,6 @@ require("mason-lspconfig").setup({
 		"rust_analyzer",
 		"cmake",
 		"clangd",
-		"angularls",
 		"ts_ls",
 		"html",
 	},
@@ -233,9 +233,6 @@ require("lspconfig").lua_ls.setup({
 require("lspconfig").marksman.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").angularls.setup({
-	capabilities = capabilities,
-})
 require("lspconfig").ts_ls.setup({
 	capabilities = capabilities,
 })
@@ -308,6 +305,7 @@ vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<cr>")
 vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>")
 vim.keymap.set("n", "<leader>e", ":lua vim.diagnostic.open_float()<cr>")
 vim.keymap.set("n", "<leader>`", ":lua vim.lsp.buf.hover()<cr>")
+vim.keymap.set("n", "<leader>a", ":lua vim.lsp.buf.code_action()<cr>")
 
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>")
