@@ -103,19 +103,19 @@ require("lazy").setup({
 			},
 		},
 		"stevearc/conform.nvim",
-		{
-			"nvim-treesitter/nvim-treesitter",
-			build = ":TSUpdate",
-			config = function()
-				local configs = require("nvim-treesitter.configs")
-
-				configs.setup({
-					sync_install = false,
-					highlight = { enable = true },
-					indent = { enable = true },
-				})
-			end,
-		},
+		-- {
+		-- 	"nvim-treesitter/nvim-treesitter",
+		-- 	build = ":TSUpdate",
+		-- 	config = function()
+		-- 		local configs = require("nvim-treesitter.configs")
+		--
+		-- 		configs.setup({
+		-- 			sync_install = false,
+		-- 			highlight = { enable = true },
+		-- 			indent = { enable = true },
+		-- 		})
+		-- 	end,
+		-- },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
