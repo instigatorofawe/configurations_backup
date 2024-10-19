@@ -91,11 +91,8 @@ require("lazy").setup({
 			"windwp/nvim-autopairs",
 			event = "InsertEnter",
 			config = true,
-			-- use opts = {} for passing setup options
-			-- this is equivalent to setup({}) function
 		},
 
-		-- "m4xshen/autoclose.nvim",
 		"ggandor/leap.nvim",
 		"numToStr/Comment.nvim",
 		"lewis6991/gitsigns.nvim",
@@ -113,7 +110,6 @@ require("lazy").setup({
 				local configs = require("nvim-treesitter.configs")
 
 				configs.setup({
-					-- ensure_installed = "all",
 					sync_install = false,
 					highlight = { enable = true },
 					indent = { enable = true },
@@ -129,17 +125,7 @@ require("lazy").setup({
 })
 
 --- Plugin setup
--- require('autoclose').setup()
 require("toggleterm").setup()
-
--- Disable LSP highlighting, use treesitter
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		client.server_capabilities.semanticTokensProvider = nil
-	end,
-})
-
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = {
