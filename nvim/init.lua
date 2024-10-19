@@ -106,6 +106,20 @@ require("lazy").setup({
 			},
 		},
 		"stevearc/conform.nvim",
+		{
+			"nvim-treesitter/nvim-treesitter",
+			build = ":TSUpdate",
+			config = function()
+				local configs = require("nvim-treesitter.configs")
+
+				configs.setup({
+					ensure_installed = "all",
+					sync_install = false,
+					highlight = { enable = true },
+					indent = { enable = true },
+				})
+			end,
+		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
@@ -117,6 +131,14 @@ require("lazy").setup({
 --- Plugin setup
 -- require('autoclose').setup()
 require("toggleterm").setup()
+
+-- Disable LSP highlighting, use treesitter
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		client.server_capabilities.semanticTokensProvider = nil
+	end,
+})
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
