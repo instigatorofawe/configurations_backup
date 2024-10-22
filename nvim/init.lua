@@ -23,6 +23,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Disable LSP highlighting
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		client.server_capabilities.semanticTokensProvider = nil
+	end,
+})
+
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
@@ -104,19 +112,27 @@ require("lazy").setup({
 			},
 		},
 		"stevearc/conform.nvim",
-		-- {
-		-- 	"nvim-treesitter/nvim-treesitter",
-		-- 	build = ":TSUpdate",
-		-- 	config = function()
-		-- 		local configs = require("nvim-treesitter.configs")
-		--
-		-- 		configs.setup({
-		-- 			sync_install = false,
-		-- 			highlight = { enable = true },
-		-- 			indent = { enable = true },
-		-- 		})
-		-- 	end,
-		-- },
+		{
+			"nvim-treesitter/nvim-treesitter",
+			build = ":TSUpdate",
+			config = function()
+				require("nvim-treesitter.configs").setup({
+					auto_install = true,
+					sync_install = false,
+					highlight = { enable = true },
+					indent = { enable = true },
+					incremental_selection = {
+						enable = true,
+						keymaps = {
+							init_selection = "<leader>s",
+							node_incremental = "<leader>i",
+							node_decremental = "<leader>d",
+							scope_incremental = "<leader>c",
+						},
+					},
+				})
+			end,
+		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
