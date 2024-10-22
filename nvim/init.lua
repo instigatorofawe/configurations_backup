@@ -120,7 +120,7 @@ require("lazy").setup({
 					auto_install = true,
 					sync_install = false,
 					highlight = { enable = true },
-					indent = { enable = true },
+					-- indent = { enable = true },
 					incremental_selection = {
 						enable = true,
 						keymaps = {
@@ -214,9 +214,9 @@ cmp.setup({
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
 	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
+	sources = cmp.config.sources({
 		{ name = "buffer" },
-	},
+	}),
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
