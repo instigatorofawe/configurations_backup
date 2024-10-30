@@ -1,7 +1,7 @@
 #!/bin/sh
-cp .tmux ~
+cp .tmux.conf ~
 cp .alacritty.toml .
-cp .skhdcrc ~
+cp .skhdrc ~
 cp .yabairc ~
 
 cp -rf ../nvim ~/.config
