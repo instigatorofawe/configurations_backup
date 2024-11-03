@@ -16,7 +16,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVuSansM Nerd Font 10
+font pango:DejaVuSansM Nerd Font 8
 
 exec picom &
 exec nitrogen --restore &
@@ -59,7 +59,7 @@ bindsym $mod+Shift+y exec maim --hidecursor --format=png /dev/stdout | xclip -se
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "DejaVuSansM Nerd Font-12"
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "DejaVuSansM Nerd Font-9"
 
 bindsym $mod+Ctrl+l exec i3lock -c 000000
 
@@ -218,7 +218,7 @@ client.unfocused        #333333 #333333 #FFFFFF #484E50   #333333
 #client.background       #FFFFFF
 
 bar {
-    font pango:DejaVuSansM Nerd Font 10
+    font pango:DejaVuSansM Nerd Font 8
     position top
     status_command i3status
     colors {
