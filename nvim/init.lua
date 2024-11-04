@@ -289,8 +289,8 @@ require("lspconfig").rust_analyzer.setup({
 	end,
 })
 
-if vim.fn.executable("basedpyright") == 1 then
-	require("lspconfig").basedpyright.setup({
+if vim.fn.executable("pyright") == 1 then
+	require("lspconfig").pyright.setup({
 		capabilities = capabilities,
 		on_attach = function(_, bufnr)
 			vim.lsp.inlay_hint.enable(true, { bufnr })
