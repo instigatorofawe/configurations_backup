@@ -155,6 +155,7 @@ require("mason-lspconfig").setup({
 		"clangd",
 		"ts_ls",
 		"html",
+		"svelte",
 	},
 })
 
@@ -266,6 +267,9 @@ require("lspconfig").ts_ls.setup({
 require("lspconfig").html.setup({
 	capabilities = capabilities,
 })
+require("lspconfig").svelte.setup({
+	capabilities = capabilities,
+})
 require("lspconfig").bashls.setup({
 	capabilities = capabilities,
 })
@@ -285,8 +289,8 @@ require("lspconfig").rust_analyzer.setup({
 	end,
 })
 
-if vim.fn.executable("pyright") == 1 then
-	require("lspconfig").pyright.setup({
+if vim.fn.executable("basedpyright") == 1 then
+	require("lspconfig").basedpyright.setup({
 		capabilities = capabilities,
 		on_attach = function(_, bufnr)
 			vim.lsp.inlay_hint.enable(true, { bufnr })
