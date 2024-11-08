@@ -6,7 +6,7 @@ rm -rf ../nvim/lazy-lock.json
 
 cp -rf ~/.config/i3 .
 cp -rf ~/.config/i3status .
-cp ~/.alacritty.yml .
+cp ~/.alacritty.toml .
 cp ~/.tmux.conf .
 
 cp ~/.Xresources .
