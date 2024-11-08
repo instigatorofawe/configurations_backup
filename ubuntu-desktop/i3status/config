@@ -6,7 +6,6 @@ general {
 order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
 order += "disk /"
 order += "cpu_usage"
 order += "load"
@@ -22,10 +21,6 @@ wireless _first_ {
 ethernet _first_ {
         format_up = "E: %ip (%speed)"
         format_down = "E: disconnected"
-}
-
-battery all { 
-        format = "%status %percentage %remaining"
 }
 
 disk "/" {
