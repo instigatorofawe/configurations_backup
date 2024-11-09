@@ -133,6 +133,13 @@ require("lazy").setup({
 				})
 			end,
 		},
+		{
+			"quarto-dev/quarto-nvim",
+			dependencies = {
+				"jmbuhr/otter.nvim",
+				"nvim-treesitter/nvim-treesitter",
+			},
+		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
@@ -142,6 +149,7 @@ require("lazy").setup({
 })
 
 --- Plugin setup
+require("quarto").setup()
 require("toggleterm").setup()
 require("mason").setup({})
 require("mason-lspconfig").setup({
