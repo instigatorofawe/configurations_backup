@@ -79,12 +79,12 @@ require("lazy").setup({
 		},
 		{
 			"williamboman/mason.nvim",
-			lazy = true,
+			event = "VeryLazy",
 			opts = {},
 		},
 		{
 			"williamboman/mason-lspconfig.nvim",
-			lazy = true,
+			event = "VeryLazy",
 			opts = {
 				ensure_installed = {
 					"lua_ls",
@@ -102,7 +102,7 @@ require("lazy").setup({
 		},
 		{
 			"neovim/nvim-lspconfig",
-			lazy = true,
+			event = "VeryLazy",
 			config = function()
 				-- Set up lspconfig.
 				local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -293,24 +293,23 @@ require("lazy").setup({
 
 		{
 			"ggandor/leap.nvim",
-			lazy = true,
+			event = "VeryLazy",
 			config = function()
 				require("leap").create_default_mappings()
 			end,
 		},
 		{
 			"numToStr/Comment.nvim",
-			lazy = true,
+			event = "VeryLazy",
 			opts = {},
 		},
 		{
 			"lewis6991/gitsigns.nvim",
-            lazy = true,
 			opts = {},
 		},
 		{
 			"nvim-telescope/telescope.nvim",
-			lazy = true,
+			event = "VeryLazy",
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 			},
@@ -323,7 +322,7 @@ require("lazy").setup({
 		},
 		{
 			"stevearc/conform.nvim",
-			lazy = true,
+			event = "VeryLazy",
 			opts = {
 				formatters_by_ft = {
 					lua = { "stylua" },
