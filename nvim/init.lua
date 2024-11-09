@@ -249,6 +249,7 @@ require("lazy").setup({
 			},
 			version = "*",
 			config = function()
+				vim.keymap.set("t", "<leader>t", "<C-\\><C-n>:ToggleTerm<cr>")
 				require("toggleterm").setup()
 			end,
 		},
@@ -258,7 +259,6 @@ require("lazy").setup({
 				{ "<leader>v", "<cmd>NvimTreeToggle<cr>", desc = "Toggle nvim-tree" },
 			},
 			config = function()
-				vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<cr>")
 				vim.g.nvim_tree_respect_buf_cwd = 1
 				require("nvim-tree").setup({
 					sort = {
