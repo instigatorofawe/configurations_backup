@@ -73,7 +73,7 @@ require("lazy").setup({
 		{
 			"loctvl842/monokai-pro.nvim",
 			config = function()
-                require("monokai-pro").setup()
+				require("monokai-pro").setup()
 				vim.cmd([[colorscheme monokai-pro]])
 			end,
 		},
@@ -241,12 +241,10 @@ require("lazy").setup({
 			"akinsho/toggleterm.nvim",
 			keys = {
 				{ "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+				{ "<leader>t", "<C-\\><C-n><cmd>ToggleTerm<cr>", desc = "Toggle terminal", mode = "t" },
 			},
 			version = "*",
-			config = function()
-				vim.keymap.set("t", "<leader>t", "<C-\\><C-n>:ToggleTerm<cr>")
-				require("toggleterm").setup()
-			end,
+			opts = {},
 		},
 		{
 			"nvim-tree/nvim-tree.lua",
@@ -309,16 +307,22 @@ require("lazy").setup({
 		},
 		{
 			"nvim-telescope/telescope.nvim",
-			event = "VeryLazy",
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 			},
-			config = function()
-				vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>")
-				vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>")
-				vim.keymap.set("n", "<leader>fb", ":Telescope buffers<cr>")
-				vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<cr>")
-			end,
+			keys = {
+				{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
+				{ "<leader>fg", "<cmd>Telescope live_grep<cr>" },
+				{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
+				{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
+			},
+			opts = {},
+			-- config = function()
+			-- 	vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>")
+			-- 	vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>")
+			-- 	vim.keymap.set("n", "<leader>fb", ":Telescope buffers<cr>")
+			-- 	vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<cr>")
+			-- end,
 		},
 		{
 			"stevearc/conform.nvim",
