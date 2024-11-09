@@ -73,41 +73,36 @@ require("lazy").setup({
 		{
 			"loctvl842/monokai-pro.nvim",
 			config = function()
-				require("monokai-pro").setup({})
+                require("monokai-pro").setup()
 				vim.cmd([[colorscheme monokai-pro]])
 			end,
 		},
-
 		{
 			"williamboman/mason.nvim",
-			event = "VeryLazy",
-			config = function()
-				require("mason").setup({})
-			end,
+			lazy = true,
+			opts = {},
 		},
 		{
 			"williamboman/mason-lspconfig.nvim",
-			event = "VeryLazy",
-			config = function()
-				require("mason-lspconfig").setup({
-					ensure_installed = {
-						"lua_ls",
-						"marksman",
-						"bashls",
-						"texlab",
-						"rust_analyzer",
-						"cmake",
-						"clangd",
-						"ts_ls",
-						"html",
-						"svelte",
-					},
-				})
-			end,
+			lazy = true,
+			opts = {
+				ensure_installed = {
+					"lua_ls",
+					"marksman",
+					"bashls",
+					"texlab",
+					"rust_analyzer",
+					"cmake",
+					"clangd",
+					"ts_ls",
+					"html",
+					"svelte",
+				},
+			},
 		},
 		{
 			"neovim/nvim-lspconfig",
-			event = "VeryLazy",
+			lazy = true,
 			config = function()
 				-- Set up lspconfig.
 				local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -285,12 +280,10 @@ require("lazy").setup({
 			dependencies = {
 				"nvim-tree/nvim-web-devicons",
 			},
-			config = function()
-				require("lualine").setup({
-					extensions = { "lazy", "nvim-tree" },
-					options = { theme = "monokai-pro" },
-				})
-			end,
+			opts = {
+				extensions = { "lazy", "nvim-tree" },
+				options = { theme = "monokai-pro" },
+			},
 		},
 		{
 			"windwp/nvim-autopairs",
@@ -300,27 +293,24 @@ require("lazy").setup({
 
 		{
 			"ggandor/leap.nvim",
-			event = "VeryLazy",
+			lazy = true,
 			config = function()
 				require("leap").create_default_mappings()
 			end,
 		},
 		{
 			"numToStr/Comment.nvim",
-			event = "VeryLazy",
-			config = function()
-				require("Comment").setup()
-			end,
+			lazy = true,
+			opts = {},
 		},
 		{
 			"lewis6991/gitsigns.nvim",
-			config = function()
-				require("gitsigns").setup()
-			end,
+            lazy = true,
+			opts = {},
 		},
 		{
 			"nvim-telescope/telescope.nvim",
-			event = "VeryLazy",
+			lazy = true,
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 			},
@@ -333,26 +323,24 @@ require("lazy").setup({
 		},
 		{
 			"stevearc/conform.nvim",
-			event = "VeryLazy",
-			config = function()
-				require("conform").setup({
-					formatters_by_ft = {
-						lua = { "stylua" },
-						-- Conform will run multiple formatters sequentially
-						python = { "isort", "black" },
-						-- You can customize some of the format options for the filetype (:help conform.format)
-						rust = { "rustfmt", lsp_format = "fallback" },
-						c = { "clang_format" },
-						cpp = { "clang_format" },
-						-- Conform will run the first available formatter
-					},
-					format_on_save = {
-						-- These options will be passed to conform.format()
-						timeout_ms = 500,
-						lsp_format = "fallback",
-					},
-				})
-			end,
+			lazy = true,
+			opts = {
+				formatters_by_ft = {
+					lua = { "stylua" },
+					-- Conform will run multiple formatters sequentially
+					python = { "isort", "black" },
+					-- You can customize some of the format options for the filetype (:help conform.format)
+					rust = { "rustfmt", lsp_format = "fallback" },
+					c = { "clang_format" },
+					cpp = { "clang_format" },
+					-- Conform will run the first available formatter
+				},
+				format_on_save = {
+					-- These options will be passed to conform.format()
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
+			},
 		},
 		{
 			"nvim-treesitter/nvim-treesitter",
@@ -382,9 +370,7 @@ require("lazy").setup({
 				"jmbuhr/otter.nvim",
 				"nvim-treesitter/nvim-treesitter",
 			},
-			config = function()
-				require("quarto").setup()
-			end,
+			opts = {},
 		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
