@@ -79,12 +79,10 @@ require("lazy").setup({
 		},
 		{
 			"williamboman/mason.nvim",
-			event = "VeryLazy",
 			opts = {},
 		},
 		{
 			"williamboman/mason-lspconfig.nvim",
-			event = "VeryLazy",
 			opts = {
 				ensure_installed = {
 					"lua_ls",
@@ -102,7 +100,6 @@ require("lazy").setup({
 		},
 		{
 			"neovim/nvim-lspconfig",
-			event = "VeryLazy",
 			config = function()
 				-- Set up lspconfig.
 				local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -180,7 +177,7 @@ require("lazy").setup({
 		},
 		{
 			"hrsh7th/nvim-cmp",
-			event = "InsertEnter",
+			-- event = "InsertEnter",
 			dependencies = {
 				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-buffer",
