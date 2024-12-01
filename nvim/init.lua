@@ -377,6 +377,9 @@ require("lazy").setup({
 			"gorbit99/codewindow.nvim",
 			opts = {
 				auto_enable = true,
+				minimap_width = 15,
+				screen_bounds = "background",
+				window_border = "shadow",
 			},
 		},
 	},
