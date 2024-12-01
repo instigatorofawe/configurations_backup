@@ -372,6 +372,13 @@ require("lazy").setup({
 			},
 			opts = {},
 		},
+		{
+
+			"gorbit99/codewindow.nvim",
+			opts = {
+				auto_enable = true,
+			},
+		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
