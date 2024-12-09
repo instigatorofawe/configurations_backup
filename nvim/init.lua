@@ -375,12 +375,16 @@ require("lazy").setup({
 		{
 
 			"gorbit99/codewindow.nvim",
-			opts = {
-				auto_enable = true,
-				minimap_width = 15,
-				screen_bounds = "background",
-				window_border = "shadow",
-			},
+			config = function()
+				local codewindow = require("codewindow")
+				codewindow.setup({
+					auto_enable = true,
+					minimap_width = 15,
+					screen_bounds = "background",
+					window_border = "shadow",
+				})
+				codewindow.apply_default_keybinds()
+			end,
 		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
