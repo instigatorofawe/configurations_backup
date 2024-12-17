@@ -206,6 +206,7 @@ require("lazy").setup({
 						["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 					}),
 					sources = cmp.config.sources({
+						{ name = "copilot" },
 						{ name = "nvim_lsp" },
 					}, {
 						{ name = "buffer" },
@@ -350,7 +351,7 @@ require("lazy").setup({
 					auto_install = true,
 					sync_install = false,
 					highlight = { enable = true },
-					-- indent = { enable = true },
+					indent = { enable = true },
 					incremental_selection = {
 						enable = true,
 						keymaps = {
@@ -385,6 +386,20 @@ require("lazy").setup({
 				})
 				codewindow.apply_default_keybinds()
 			end,
+		},
+
+		{
+			"zbirenbaum/copilot-cmp",
+			opts = {},
+		},
+		{
+			"zbirenbaum/copilot.lua",
+			cmd = "Copilot",
+			event = "InsertEnter",
+			opts = {
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			},
 		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
