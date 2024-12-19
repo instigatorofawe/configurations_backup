@@ -213,6 +213,9 @@ require("lazy").setup({
 					}, {
 						{ name = "nvim_lsp_signature_help" },
 					}),
+					experimental = {
+						ghost_text = true,
+					},
 				})
 
 				-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -278,7 +281,17 @@ require("lazy").setup({
 			},
 			opts = {
 				extensions = { "lazy", "nvim-tree" },
-				options = { theme = "monokai-pro" },
+				options = {
+					theme = "monokai-pro",
+				},
+				sections = {
+					lualine_a = { "mode" },
+					lualine_b = { "branch", "diff", "diagnostics" },
+					lualine_c = { "filename" },
+					lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
+					lualine_y = { "progress" },
+					lualine_z = { "location" },
+				},
 			},
 		},
 		{
@@ -400,6 +413,9 @@ require("lazy").setup({
 				suggestion = { enabled = false },
 				panel = { enabled = false },
 			},
+		},
+		{
+			"AndreM222/copilot-lualine",
 		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
