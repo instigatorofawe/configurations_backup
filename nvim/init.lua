@@ -133,6 +133,23 @@ require("lazy").setup({
 				})
 				require("lspconfig").ts_ls.setup({
 					capabilities = capabilities,
+					settings = {
+						typescript = {
+							tsserver = {
+								useSyntaxServer = false,
+							},
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+					},
 				})
 				require("lspconfig").html.setup({
 					capabilities = capabilities,
@@ -315,7 +332,10 @@ require("lazy").setup({
 		},
 		{
 			"lewis6991/gitsigns.nvim",
-			opts = {},
+			opts = {
+				current_line_blame = true,
+				delay = 100,
+			},
 		},
 		{
 			"nvim-telescope/telescope.nvim",
@@ -348,6 +368,10 @@ require("lazy").setup({
 					rust = { "rustfmt", lsp_format = "fallback" },
 					c = { "clang_format" },
 					cpp = { "clang_format" },
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					svelte = { "prettier" },
+					json = { "prettier" },
 					-- Conform will run the first available formatter
 				},
 				format_on_save = {
