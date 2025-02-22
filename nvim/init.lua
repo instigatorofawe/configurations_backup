@@ -224,7 +224,7 @@ require("lazy").setup({
 						["<Tab>"] = cmp.mapping.confirm({ select = true }),
 					}),
 					sources = cmp.config.sources({
-						{ name = "copilot" },
+						-- { name = "copilot" },
 						{ name = "nvim_lsp" },
 					}, {
 						{ name = "buffer" },
@@ -306,7 +306,8 @@ require("lazy").setup({
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = { "filename" },
-					lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
+					-- lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
+					lualine_x = { "encoding", "fileformat", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
@@ -426,22 +427,22 @@ require("lazy").setup({
 			end,
 		},
 
-		{
-			"zbirenbaum/copilot-cmp",
-			opts = {},
-		},
-		{
-			"zbirenbaum/copilot.lua",
-			cmd = "Copilot",
-			event = "InsertEnter",
-			opts = {
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-			},
-		},
-		{
-			"AndreM222/copilot-lualine",
-		},
+		-- {
+		-- 	"zbirenbaum/copilot-cmp",
+		-- 	opts = {},
+		-- },
+		-- {
+		-- 	"zbirenbaum/copilot.lua",
+		-- 	cmd = "Copilot",
+		-- 	event = "InsertEnter",
+		-- 	opts = {
+		-- 		suggestion = { enabled = false },
+		-- 		panel = { enabled = false },
+		-- 	},
+		-- },
+		-- {
+		-- 	"AndreM222/copilot-lualine",
+		-- },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
