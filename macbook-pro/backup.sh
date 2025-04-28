@@ -6,4 +6,5 @@ cp ~/.yabairc .
 cp ~/.skhdrc .
 cp ~/.alacritty.toml .
 cp ~/.tmux.conf .
+cp ~/.aerospace.toml .
 
