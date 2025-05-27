@@ -185,6 +185,10 @@ require("lazy").setup({
 					})
 				end
 
+				if vim.fn.executable("pyrefly") == 1 then
+					vim.lsp.enable("pyrefly")
+				end
+
 				if vim.fn.executable("R") == 1 then
 					require("lspconfig").r_language_server.setup({
 						capabilities = capabilities,
@@ -426,23 +430,6 @@ require("lazy").setup({
 				codewindow.apply_default_keybinds()
 			end,
 		},
-
-		-- {
-		-- 	"zbirenbaum/copilot-cmp",
-		-- 	opts = {},
-		-- },
-		-- {
-		-- 	"zbirenbaum/copilot.lua",
-		-- 	cmd = "Copilot",
-		-- 	event = "InsertEnter",
-		-- 	opts = {
-		-- 		suggestion = { enabled = false },
-		-- 		panel = { enabled = false },
-		-- 	},
-		-- },
-		-- {
-		-- 	"AndreM222/copilot-lualine",
-		-- },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
