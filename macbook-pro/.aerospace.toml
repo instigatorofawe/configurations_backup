@@ -115,8 +115,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-l = 'move right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    alt-minus = 'resize smart -50'
-    alt-equal = 'resize smart +50'
+    # alt-minus = 'resize smart -50'
+    # alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     alt-1 = 'workspace 1'
@@ -215,13 +215,41 @@ automatically-unhide-macos-hidden-apps = false
     shift-down = ['volume set 0', 'mode main']
 
 [workspace-to-monitor-force-assignment]
-    1 = 1
-    2 = 1
-    3 = 1
-    4 = 1
-    5 = 1
-    6 = 2
-    7 = 2
-    8 = 2
-    9 = 2
-    10 = 2
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'main'
+    5 = 'main'
+    6 = ['secondary', 'main']
+    7 = ['secondary', 'main']
+    8 = ['secondary', 'main']
+    9 = ['secondary', 'main']
+    10 = ['secondary', 'main']
+    Y = [3, 'secondary', 'main']
+    U = [3, 'secondary', 'main']
+    I = [3, 'secondary', 'main']
+    O = [3, 'secondary', 'main']
+    P = [3, 'secondary', 'main']
+
+    Q = 'main'
+    W = 'main'
+    E = 'main'
+    R = 'main'
+
+    A = 'main'
+    B = 'main'
+    C = 'main'
+    D = 'main'
+    F = 'main'
+    G = 'main'
+    H = 'main'
+    J = 'main'
+    K = 'main'
+    L = 'main'
+    M = 'main'
+    N = 'main'
+    S = 'main'
+    T = 'main'
+    V = 'main'
+    X = 'main'
+    Z = 'main'
