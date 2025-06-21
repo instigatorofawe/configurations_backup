@@ -1,0 +1,29 @@
+# Starship configuration equivalent to PS1="(%*) %n:%~ $ "
+add_newline = false
+
+format = """\
+$time \
+$username\
+:$directory \\$ """
+
+[time]
+disabled = false
+format = '[\($time\)]($style)'
+style = 'yellow'
+time_format = '%H:%M:%S'
+
+[username]
+show_always = true
+format = '[$user]($style)'
+style_user = 'white'
+style_root = 'white'
+
+[directory]
+format = '[$path]($style)'
+style = 'blue'
+truncation_length = 0
+truncate_to_repo = false
+
+[character]
+success_symbol = '[$ ](white)'
+error_symbol = '[$ ](white)'
