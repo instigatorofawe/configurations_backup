@@ -4,7 +4,11 @@ add_newline = false
 format = """\
 $time \
 $username\
-:$directory \\$ """
+:$directory \
+$git_branch\
+$git_status\
+$cmd_duration\
+\\$ """
 
 [time]
 disabled = false
@@ -27,3 +31,7 @@ truncate_to_repo = false
 [character]
 success_symbol = '[$ ](white)'
 error_symbol = '[$ ](white)'
+
+[cmd_duration]
+min_time = 0
+show_milliseconds = true
