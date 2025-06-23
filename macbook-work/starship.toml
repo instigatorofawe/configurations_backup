@@ -1,14 +1,19 @@
 # Starship configuration equivalent to PS1="(%*) %n:%~ $ "
 add_newline = false
 
-format = """\
-$time \
+format = """
+$time\
 $username\
-:$directory \\$ """
+:$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+\\$ 
+"""
 
 [time]
 disabled = false
-format = '[\($time\)]($style)'
+format = '[\($time\) ]($style)'
 style = 'yellow'
 time_format = '%H:%M:%S'
 
@@ -19,11 +24,16 @@ style_user = 'white'
 style_root = 'white'
 
 [directory]
-format = '[$path]($style)'
+format = '[$path ]($style)'
 style = 'blue'
 truncation_length = 0
-truncate_to_repo = false
+truncate_to_repo = true
 
-[character]
-success_symbol = '[$ ](white)'
-error_symbol = '[$ ](white)'
+[git_branch]
+format = '[$symbol$branch(:$remote_branch) ]($style)'
+symbol = ''
+
+[cmd_duration]
+format = '[$duration ]($style)'
+min_time = 0
+show_milliseconds = true
