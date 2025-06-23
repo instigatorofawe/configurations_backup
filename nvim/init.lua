@@ -98,7 +98,7 @@ require("lazy").setup({
 				},
 			},
 			dependencies = {
-				"williamboman/mason.nvim",
+				{ "mason-org/mason.nvim", opts = {} },
 				"neovim/nvim-lspconfig",
 			},
 		},
@@ -132,9 +132,9 @@ require("lazy").setup({
 						},
 					},
 				})
-				-- require("lspconfig").sourcekit.setup({
-				-- 	capabilities = capabilities,
-				-- })
+				require("lspconfig").sourcekit.setup({
+					capabilities = capabilities,
+				})
 				require("lspconfig").marksman.setup({
 					capabilities = capabilities,
 				})
