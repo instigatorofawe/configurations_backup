@@ -132,9 +132,9 @@ require("lazy").setup({
 						},
 					},
 				})
-				require("lspconfig").sourcekit.setup({
-					capabilities = capabilities,
-				})
+				-- require("lspconfig").sourcekit.setup({
+				-- 	capabilities = capabilities,
+				-- })
 				require("lspconfig").marksman.setup({
 					capabilities = capabilities,
 				})
