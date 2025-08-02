@@ -3,7 +3,7 @@
 ## Git configuration
 ```
 git config --global user.name "Ran Liu"
-git config --global user.email "xabsox@gmail.com"
+git config --global user.email "ran.liu.2021@gmail.com"
 git config --global core.editor "nvim"
 ```
 
@@ -13,8 +13,6 @@ https://brew.sh/
 ```
 
 ## Software:
-- yabai (brew)
-- skhdrc (brew)
 - nvim (brew)
 - alacritty (brew)
 
