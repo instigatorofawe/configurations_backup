@@ -209,7 +209,11 @@ require("lazy").setup({
 				"stevearc/oil.nvim", -- (optional) to manage project files
 				"nvim-treesitter/nvim-treesitter", -- (optional) for Quick tests support (required Swift parser)
 			},
-            opts = {}
+            opts = {},
+            cmd = {'XcodebuildPicker'},
+			keys = {
+				{ "<leader>b", "<cmd>XcodebuildPicker<cr>", desc = "Open picker" },
+			},
 		},
 		{
 			"hrsh7th/nvim-cmp",
