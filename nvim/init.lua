@@ -91,7 +91,7 @@ require("lazy").setup({
 					"texlab",
 					"rust_analyzer",
 					"cmake",
-					"clangd",
+					-- "clangd",
 					"ts_ls",
 					"html",
 					"svelte",
@@ -132,9 +132,9 @@ require("lazy").setup({
 						},
 					},
 				})
-				-- require("lspconfig").sourcekit.setup({
-				-- 	capabilities = capabilities,
-				-- })
+				require("lspconfig").sourcekit.setup({
+					capabilities = capabilities,
+				})
 				require("lspconfig").marksman.setup({
 					capabilities = capabilities,
 				})
@@ -170,9 +170,9 @@ require("lazy").setup({
 				require("lspconfig").texlab.setup({
 					capabilities = capabilities,
 				})
-				require("lspconfig").clangd.setup({
-					capabilities = capabilities,
-				})
+				-- require("lspconfig").clangd.setup({
+				-- 	capabilities = capabilities,
+				-- })
 				require("lspconfig").cmake.setup({
 					capabilities = capabilities,
 				})
