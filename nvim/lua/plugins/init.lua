@@ -1,0 +1,181 @@
+return {
+	{
+		"loctvl842/monokai-pro.nvim",
+		config = function()
+			require("monokai-pro").setup()
+			vim.cmd([[colorscheme monokai-pro]])
+		end,
+	},
+	{
+		"wojciech-kulik/xcodebuild.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"MunifTanjim/nui.nvim",
+			"folke/snacks.nvim",
+			"nvim-tree/nvim-tree.lua",
+			"stevearc/oil.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {},
+		cmd = { "XcodebuildPicker" },
+		keys = {
+			{ "<leader>b", "<cmd>XcodebuildPicker<cr>", desc = "Open picker" },
+		},
+	},
+	{
+		"akinsho/toggleterm.nvim",
+		keys = {
+			{ "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+			{ "<leader>t", "<C-\\><C-n><cmd>ToggleTerm<cr>", desc = "Toggle terminal", mode = "t" },
+		},
+		version = "*",
+		opts = {},
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		keys = {
+			{ "<leader>v", "<cmd>NvimTreeToggle<cr>", desc = "Toggle nvim-tree" },
+		},
+		config = function()
+			vim.g.nvim_tree_respect_buf_cwd = 1
+			require("nvim-tree").setup({
+				sort = {
+					sorter = "case_sensitive",
+				},
+				view = {
+					width = 35,
+				},
+				renderer = {
+					group_empty = true,
+				},
+				filters = {
+					dotfiles = true,
+				},
+				update_focused_file = {
+					enable = true,
+					update_cwd = true,
+				},
+			})
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		opts = {
+			extensions = { "lazy", "nvim-tree" },
+			options = {
+				theme = "monokai-pro",
+			},
+			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_c = { "filename" },
+				lualine_x = { "encoding", "fileformat", "filetype" },
+				lualine_y = { "progress" },
+				lualine_z = { "location" },
+			},
+		},
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
+	{
+		"ggandor/leap.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("leap").create_default_mappings()
+		end,
+	},
+	{
+		"numToStr/Comment.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			current_line_blame = true,
+			delay = 100,
+		},
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		keys = {
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>" },
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
+			{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
+		},
+		opts = {},
+	},
+	{
+		"stevearc/conform.nvim",
+		event = "VeryLazy",
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				python = { "black" },
+				rust = { "rustfmt", lsp_format = "fallback" },
+				c = { "clang_format" },
+				cpp = { "clang_format" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				svelte = { "prettier" },
+				json = { "prettier" },
+			},
+		},
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				modules = {},
+				ensure_installed = {},
+				ignore_install = {},
+				auto_install = true,
+				sync_install = false,
+				highlight = { enable = true },
+				indent = { enable = true },
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+						init_selection = "<leader>s",
+						node_incremental = "<leader>i",
+						node_decremental = "<leader>d",
+						scope_incremental = "<leader>c",
+					},
+				},
+			})
+		end,
+	},
+	{
+		"quarto-dev/quarto-nvim",
+		ft = "quarto",
+		dependencies = {
+			"jmbuhr/otter.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {},
+	},
+	{
+		"gorbit99/codewindow.nvim",
+		config = function()
+			local codewindow = require("codewindow")
+			codewindow.setup({
+				auto_enable = true,
+				minimap_width = 15,
+				screen_bounds = "background",
+				window_border = "shadow",
+			})
+			codewindow.apply_default_keybinds()
+		end,
+	},
+}
