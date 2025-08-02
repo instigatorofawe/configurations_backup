@@ -91,7 +91,7 @@ require("lazy").setup({
 					"texlab",
 					"rust_analyzer",
 					"cmake",
-					-- "clangd",
+					"clangd",
 					"ts_ls",
 					"html",
 					"svelte",
@@ -209,8 +209,8 @@ require("lazy").setup({
 				"stevearc/oil.nvim", -- (optional) to manage project files
 				"nvim-treesitter/nvim-treesitter", -- (optional) for Quick tests support (required Swift parser)
 			},
-            opts = {},
-            cmd = {'XcodebuildPicker'},
+			opts = {},
+			cmd = { "XcodebuildPicker" },
 			keys = {
 				{ "<leader>b", "<cmd>XcodebuildPicker<cr>", desc = "Open picker" },
 			},
