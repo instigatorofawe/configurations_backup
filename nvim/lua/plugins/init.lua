@@ -1,6 +1,7 @@
 return {
 	{
 		"loctvl842/monokai-pro.nvim",
+		event = "VimEnter",
 		config = function()
 			require("monokai-pro").setup()
 			vim.cmd([[colorscheme monokai-pro]])
@@ -137,6 +138,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
 		config = function()
 			require("nvim-treesitter.configs").setup({
@@ -170,6 +172,7 @@ return {
 	},
 	{
 		"gorbit99/codewindow.nvim",
+		event = "BufReadPost",
 		config = function()
 			local codewindow = require("codewindow")
 			codewindow.setup({
@@ -182,4 +185,3 @@ return {
 		end,
 	},
 }
-

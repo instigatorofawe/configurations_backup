@@ -5,6 +5,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			automatic_enable = false,
 			ensure_installed = {
@@ -167,3 +168,4 @@ return {
 		end,
 	},
 }
+
