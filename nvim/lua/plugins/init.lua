@@ -61,6 +61,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		event = "VimEnter",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
@@ -122,7 +123,7 @@ return {
 	},
 	{
 		"stevearc/conform.nvim",
-		event = "VeryLazy",
+		event = { "BufWritePre", "BufNewFile" },
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },

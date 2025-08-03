@@ -30,6 +30,16 @@ vim.opt.showmatch = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)

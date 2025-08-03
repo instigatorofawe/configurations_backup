@@ -1,7 +1,7 @@
 return {
 	{
 		"williamboman/mason.nvim",
-        cmd = "Mason",
+		cmd = "Mason",
 		opts = {},
 	},
 	{
@@ -23,7 +23,7 @@ return {
 			},
 		},
 		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
+			"williamboman/mason.nvim",
 			"neovim/nvim-lspconfig",
 		},
 	},
@@ -31,8 +31,9 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local lspconfig = require("lspconfig")
 
-			require("lspconfig").lua_ls.setup({
+			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = {
 					Lua = {
@@ -51,13 +52,13 @@ return {
 					},
 				},
 			})
-			require("lspconfig").sourcekit.setup({
+			lspconfig.sourcekit.setup({
 				capabilities = capabilities,
 			})
-			require("lspconfig").marksman.setup({
+			lspconfig.marksman.setup({
 				capabilities = capabilities,
 			})
-			require("lspconfig").ts_ls.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 				settings = {
 					typescript = {
@@ -77,22 +78,22 @@ return {
 					},
 				},
 			})
-			require("lspconfig").html.setup({
+			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
-			require("lspconfig").svelte.setup({
+			lspconfig.svelte.setup({
 				capabilities = capabilities,
 			})
-			require("lspconfig").bashls.setup({
+			lspconfig.bashls.setup({
 				capabilities = capabilities,
 			})
-			require("lspconfig").texlab.setup({
+			lspconfig.texlab.setup({
 				capabilities = capabilities,
 			})
-			require("lspconfig").cmake.setup({
+			lspconfig.cmake.setup({
 				capabilities = capabilities,
 			})
-			require("lspconfig").rust_analyzer.setup({
+			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 				on_attach = function(_, bufnr)
 					vim.lsp.inlay_hint.enable(true, { bufnr })
@@ -100,7 +101,7 @@ return {
 			})
 
 			if vim.fn.executable("pyright") == 1 then
-				require("lspconfig").pyright.setup({
+				lspconfig.pyright.setup({
 					capabilities = capabilities,
 					on_attach = function(_, bufnr)
 						vim.lsp.inlay_hint.enable(true, { bufnr })
@@ -109,7 +110,7 @@ return {
 			end
 
 			if vim.fn.executable("R") == 1 then
-				require("lspconfig").r_language_server.setup({
+				lspconfig.r_language_server.setup({
 					capabilities = capabilities,
 				})
 			end
@@ -169,4 +170,3 @@ return {
 		end,
 	},
 }
-
