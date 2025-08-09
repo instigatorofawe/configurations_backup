@@ -6,4 +6,5 @@ cp ~/.alacritty.toml .
 cp ~/.tmux.conf .
 cp ~/.aerospace.toml .
 cp ~/.config/starship.toml .
+cp ~/.wezterm.lua .
 
