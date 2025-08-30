@@ -179,11 +179,20 @@ return {
 			local codewindow = require("codewindow")
 			codewindow.setup({
 				auto_enable = true,
-				minimap_width = 15,
+				minimap_width = 10,
 				screen_bounds = "background",
 				window_border = "shadow",
 			})
 			codewindow.apply_default_keybinds()
 		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	},
 }

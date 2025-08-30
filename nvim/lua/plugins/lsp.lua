@@ -52,9 +52,12 @@ return {
 					},
 				},
 			})
-			lspconfig.sourcekit.setup({
-				capabilities = capabilities,
-			})
+			-- lspconfig.sourcekit.setup({
+			-- 	capabilities = capabilities,
+			-- })
+            lspconfig.clangd.setup({
+                capabilities = capabilities
+            })
 			lspconfig.marksman.setup({
 				capabilities = capabilities,
 			})
