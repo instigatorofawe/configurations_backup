@@ -30,11 +30,10 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local lspconfig = require("lspconfig")
+			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- local lspconfig = require("lspconfig")
 
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
+			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
 						runtime = {
@@ -52,17 +51,12 @@ return {
 					},
 				},
 			})
-			-- lspconfig.sourcekit.setup({
-			-- 	capabilities = capabilities,
-			-- })
-            lspconfig.clangd.setup({
-                capabilities = capabilities
-            })
-			lspconfig.marksman.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
+			vim.lsp.enable("lua_ls")
+
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("marksman")
+
+            vim.lsp.config("ts_ls", {
 				settings = {
 					typescript = {
 						tsserver = {
@@ -80,42 +74,33 @@ return {
 						},
 					},
 				},
-			})
-			lspconfig.html.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.svelte.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.bashls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.texlab.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.cmake.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
+            })
+			vim.lsp.enable("ts_ls")
+
+			vim.lsp.enable("html")
+			vim.lsp.enable("svelte")
+			vim.lsp.enable("bashls")
+			vim.lsp.enable("texlab")
+			vim.lsp.enable("cmake")
+
+            vim.lsp.config("rust_analyzer", {
 				on_attach = function(_, bufnr)
 					vim.lsp.inlay_hint.enable(true, { bufnr })
 				end,
-			})
+            })
+			vim.lsp.enable("rust_analyzer")
 
 			if vim.fn.executable("pyright") == 1 then
-				lspconfig.pyright.setup({
-					capabilities = capabilities,
+                vim.lsp.config("pyright", {
 					on_attach = function(_, bufnr)
 						vim.lsp.inlay_hint.enable(true, { bufnr })
 					end,
-				})
+                })
+				vim.lsp.enable("pyright")
 			end
 
 			if vim.fn.executable("R") == 1 then
-				lspconfig.r_language_server.setup({
-					capabilities = capabilities,
-				})
+				vim.lsp.enable("r_language_server")
 			end
 		end,
 	},
