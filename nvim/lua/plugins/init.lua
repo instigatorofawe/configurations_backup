@@ -105,7 +105,9 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			current_line_blame = true,
-			delay = 100,
+			current_line_blame_opts = {
+				delay = 100,
+			},
 		},
 	},
 	{
