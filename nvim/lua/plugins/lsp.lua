@@ -107,7 +107,18 @@ return {
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
 		build = "make install_jsregexp",
-        event = "InsertEnter"
+		event = "InsertEnter",
+	},
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		event = "LspAttach",
+		config = function()
+			require("lsp_lines").setup()
+			-- Disable virtual_text since lsp_lines will handle diagnostics
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",

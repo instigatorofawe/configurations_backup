@@ -8,6 +8,14 @@ return {
 		end,
 	},
 	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = "VeryLazy",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
+	{
 		"akinsho/toggleterm.nvim",
 		keys = {
 			{ "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
