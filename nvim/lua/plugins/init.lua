@@ -75,7 +75,20 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		config = true,
+		config = function()
+			local npairs = require("nvim-autopairs")
+			npairs.setup({
+				disable_filetype = { "TelescopePrompt" },
+			})
+
+			-- Disable triple quote pairing for Python
+			local Rule = require("nvim-autopairs.rule")
+			npairs.add_rules({
+				Rule('"""', '"""', "python"):with_pair(function()
+					return false
+				end),
+			})
+		end,
 	},
 	{
 		"ggandor/leap.nvim",
