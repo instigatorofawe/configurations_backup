@@ -8,22 +8,6 @@ return {
 		end,
 	},
 	{
-		"wojciech-kulik/xcodebuild.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"MunifTanjim/nui.nvim",
-			"folke/snacks.nvim",
-			"nvim-tree/nvim-tree.lua",
-			"stevearc/oil.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
-		cmd = { "XcodebuildPicker" },
-		keys = {
-			{ "<leader>b", "<cmd>XcodebuildPicker<cr>", desc = "Open picker" },
-		},
-	},
-	{
 		"akinsho/toggleterm.nvim",
 		keys = {
 			{ "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },

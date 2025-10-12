@@ -30,9 +30,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			-- local lspconfig = require("lspconfig")
-
 			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
@@ -56,7 +53,7 @@ return {
 			vim.lsp.enable("clangd")
 			vim.lsp.enable("marksman")
 
-            vim.lsp.config("ts_ls", {
+			vim.lsp.config("ts_ls", {
 				settings = {
 					typescript = {
 						tsserver = {
@@ -74,7 +71,7 @@ return {
 						},
 					},
 				},
-            })
+			})
 			vim.lsp.enable("ts_ls")
 
 			vim.lsp.enable("html")
@@ -83,19 +80,19 @@ return {
 			vim.lsp.enable("texlab")
 			vim.lsp.enable("cmake")
 
-            vim.lsp.config("rust_analyzer", {
+			vim.lsp.config("rust_analyzer", {
 				on_attach = function(_, bufnr)
 					vim.lsp.inlay_hint.enable(true, { bufnr })
 				end,
-            })
+			})
 			vim.lsp.enable("rust_analyzer")
 
 			if vim.fn.executable("pyright") == 1 then
-                vim.lsp.config("pyright", {
+				vim.lsp.config("pyright", {
 					on_attach = function(_, bufnr)
 						vim.lsp.inlay_hint.enable(true, { bufnr })
 					end,
-                })
+				})
 				vim.lsp.enable("pyright")
 			end
 
@@ -105,6 +102,14 @@ return {
 		end,
 	},
 	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+        event = "InsertEnter"
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
@@ -112,6 +117,7 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"saadparwaiz1/cmp_luasnip",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -128,6 +134,8 @@ return {
 					["<Tab>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
+					{ name = "luasnip" },
+				}, {
 					{ name = "nvim_lsp" },
 				}, {
 					{ name = "buffer" },
