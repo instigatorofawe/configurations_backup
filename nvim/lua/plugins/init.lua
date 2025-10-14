@@ -44,6 +44,7 @@ return {
 			},
 		},
 	},
+	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 	{
 		"nvim-tree/nvim-tree.lua",
 		keys = {
