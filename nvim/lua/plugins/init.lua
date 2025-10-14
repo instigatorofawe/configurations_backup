@@ -16,7 +16,7 @@ return {
 		opts = {
 			scope = {
 				enabled = true,
-                highlight = {"Function", "Label"}
+				highlight = { "Function", "Label" },
 			},
 		},
 	},
@@ -28,6 +28,21 @@ return {
 		},
 		version = "*",
 		opts = {},
+	},
+	{
+		"akinsho/bufferline.nvim",
+		event = "VimEnter",
+		keys = {
+			{ "<C-Tab>", "<cmd>BufferLineCycleNext<CR>", mode = "n" },
+			{ "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>", mode = "n" },
+		},
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		opts = {
+			options = {
+				mode = "tabs",
+			},
+		},
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
