@@ -22,6 +22,7 @@ vim.keymap.set("n", "<leader>`", "<cmd>lua vim.lsp.buf.hover()<cr>")
 vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 vim.keymap.set("n", "<leader>g", '<cmd>lua require("conform").format()<cr>')
 vim.keymap.set("n", "<leader>l", '<cmd>lua require("lsp_lines").toggle()<cr>', { desc = "Toggle lsp_lines" })
+vim.keymap.set('n', '<C-]>', '<C-w><C-]><C-w>T', { silent = true }) -- Open definition in new tab
 
 -- Close all hidden buffers
 vim.keymap.set("n", "<leader>x", function()
