@@ -31,7 +31,7 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		keys = {
 			{ "<C-Tab>", "<cmd>BufferLineCycleNext<CR>", mode = "n" },
 			{ "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>", mode = "n" },
@@ -48,33 +48,45 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		keys = {
-			{ "<leader>v", "<cmd>NvimTreeToggle<cr>", desc = "Toggle nvim-tree" },
+			{
+				"<leader>v",
+				function()
+					local api = require("nvim-tree.api")
+					if api.tree.is_visible() then
+						api.tree.close()
+					else
+						local current_file = vim.fn.expand("%:p")
+						if current_file ~= "" then
+							local file_dir = vim.fn.fnamemodify(current_file, ":h")
+							api.tree.open()
+							api.tree.change_root(file_dir)
+							api.tree.find_file(current_file)
+						else
+							api.tree.open()
+						end
+					end
+				end,
+				desc = "Toggle nvim-tree",
+			},
 		},
-		config = function()
-			vim.g.nvim_tree_respect_buf_cwd = 1
-			require("nvim-tree").setup({
-				sort = {
-					sorter = "case_sensitive",
-				},
-				view = {
-					width = 35,
-				},
-				renderer = {
-					group_empty = true,
-				},
-				filters = {
-					dotfiles = false,
-				},
-				update_focused_file = {
-					enable = true,
-					update_cwd = true,
-				},
-			})
-		end,
+		opts = {
+			sort = {
+				sorter = "case_sensitive",
+			},
+			view = {
+				width = 35,
+			},
+			renderer = {
+				group_empty = true,
+			},
+			filters = {
+				dotfiles = false,
+			},
+		},
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
