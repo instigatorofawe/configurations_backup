@@ -31,7 +31,7 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		keys = {
 			{ "<C-Tab>", "<cmd>BufferLineCycleNext<CR>", mode = "n" },
 			{ "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>", mode = "n" },
@@ -74,7 +74,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
