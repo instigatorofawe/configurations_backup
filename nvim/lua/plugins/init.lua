@@ -162,6 +162,13 @@ return {
 		opts = {},
 	},
 	{
+		"nvim-pack/nvim-spectre",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {},
+	},
+	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre", "BufNewFile" },
 		opts = {
