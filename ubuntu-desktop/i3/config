@@ -16,7 +16,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVuSansM Nerd Font 8
+font pango:DejaVuSansM Nerd Font 9
 
 exec picom &
 exec nitrogen --restore &
@@ -49,7 +49,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 # open a browser window
-bindsym $mod+n exec google-chrome-stable
+bindsym $mod+n exec firefox
 # Screenshot selection
 bindsym $mod+y exec maim --hidecursor -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i 
 # Screenshot all
@@ -218,7 +218,7 @@ client.unfocused        #333333 #333333 #FFFFFF #484E50   #333333
 #client.background       #FFFFFF
 
 bar {
-    font pango:DejaVuSansM Nerd Font 8
+    font pango:DejaVuSansM Nerd Font 10
     position top
     status_command i3status
     colors {
