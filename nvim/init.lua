@@ -22,6 +22,8 @@ require("lazy").setup({
         { import = "plugins" },
         { import = "plugins.lsp" },
     },
-    install = { colorscheme = { "monokai-pro" } },
+    install = { colorscheme = { "catpuccin" } },
     checker = { enabled = false },
 })
+
+vim.cmd.colorscheme "catppuccin-mocha"

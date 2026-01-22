@@ -48,3 +48,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.cmd([[filetype plugin indent on]])
+

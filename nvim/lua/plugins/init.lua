@@ -1,12 +1,5 @@
 return {
-	{
-		"loctvl842/monokai-pro.nvim",
-		event = "VimEnter",
-		config = function()
-			require("monokai-pro").setup()
-			vim.cmd([[colorscheme monokai-pro]])
-		end,
-	},
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
@@ -93,7 +86,7 @@ return {
 		opts = {
 			extensions = { "lazy", "nvim-tree" },
 			options = {
-				theme = "monokai-pro",
+				theme = "catppuccin",
 			},
 			sections = {
 				lualine_a = { "mode" },
