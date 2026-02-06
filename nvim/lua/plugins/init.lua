@@ -1,5 +1,5 @@
 return {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
@@ -182,26 +182,21 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				modules = {},
-				ensure_installed = {},
-				ignore_install = {},
-				auto_install = true,
-				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true },
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<leader>s",
-						node_incremental = "<leader>i",
-						node_decremental = "<leader>d",
-						scope_incremental = "<leader>c",
-					},
+		opts = {
+			auto_install = true,
+			sync_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<leader>s",
+					node_incremental = "<leader>i",
+					node_decremental = "<leader>d",
+					scope_incremental = "<leader>c",
 				},
-			})
-		end,
+			},
+		},
 	},
 	{
 		"quarto-dev/quarto-nvim",
@@ -213,18 +208,9 @@ return {
 		opts = {},
 	},
 	{
-		"gorbit99/codewindow.nvim",
-		event = "BufReadPost",
-		config = function()
-			local codewindow = require("codewindow")
-			codewindow.setup({
-				auto_enable = true,
-				minimap_width = 10,
-				screen_bounds = "background",
-				window_border = "shadow",
-			})
-			codewindow.apply_default_keybinds()
-		end,
+		"lewis6991/satellite.nvim",
+		event = "VeryLazy",
+		opts = {},
 	},
 	{
 		"iamcco/markdown-preview.nvim",
