@@ -1,11 +1,15 @@
 return {
 	{
-		"loctvl842/monokai-pro.nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("monokai-pro").setup()
-			vim.cmd.colorscheme("monokai-pro")
+		opts = {
+			flavour = "mocha",
+		},
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
+			vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 	{
@@ -79,7 +83,7 @@ return {
 		opts = {
 			extensions = { "lazy", "nvim-tree" },
 			options = {
-				theme = "monokai-pro",
+				theme = "catppuccin-mocha",
 			},
 			sections = {
 				lualine_a = { "mode" },
@@ -159,14 +163,15 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
-		opts = {
-			auto_install = true,
-			sync_install = false,
-			highlight = { enable = true },
-			indent = { enable = true },
-		},
+		config = function()
+			require("nvim-treesitter").setup()
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function()
+					pcall(vim.treesitter.start)
+				end,
+			})
+		end,
 	},
 	{
 		"lewis6991/satellite.nvim",

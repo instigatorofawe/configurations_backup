@@ -22,6 +22,6 @@ require("lazy").setup({
 		{ import = "plugins" },
 		{ import = "plugins.lsp" },
 	},
-	install = { colorscheme = { "monkai-pro" } },
+	install = { colorscheme = { "catppuccin-mocha" } },
 	checker = { enabled = false },
 })
