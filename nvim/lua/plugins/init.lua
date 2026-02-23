@@ -1,5 +1,13 @@
 return {
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{
+		"loctvl842/monokai-pro.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("monokai-pro").setup()
+			vim.cmd.colorscheme("monokai-pro")
+		end,
+	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
@@ -21,21 +29,6 @@ return {
 		},
 		version = "*",
 		opts = {},
-	},
-	{
-		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
-		keys = {
-			{ "<C-Tab>", "<cmd>BufferLineCycleNext<CR>", mode = "n" },
-			{ "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>", mode = "n" },
-		},
-		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		opts = {
-			options = {
-				mode = "tabs",
-			},
-		},
 	},
 	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 	{
@@ -86,7 +79,7 @@ return {
 		opts = {
 			extensions = { "lazy", "nvim-tree" },
 			options = {
-				theme = "catppuccin",
+				theme = "monokai-pro",
 			},
 			sections = {
 				lualine_a = { "mode" },
@@ -117,19 +110,12 @@ return {
 		end,
 	},
 	{
-		"ggandor/leap.nvim",
-		keys = {
-			{ "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-			{ "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-		},
+		"https://codeberg.org/andyg/leap.nvim",
 		config = function()
-			require("leap").create_default_mappings()
+			vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
+			vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+			vim.keymap.set("n", "gs", "<Plug>(leap-from-window)")
 		end,
-	},
-	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		opts = {},
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -151,13 +137,6 @@ return {
 			{ "<leader>fg", "<cmd>Telescope live_grep<cr>" },
 			{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
-		},
-		opts = {},
-	},
-	{
-		"nvim-pack/nvim-spectre",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
 		},
 		opts = {},
 	},
@@ -187,39 +166,12 @@ return {
 			sync_install = false,
 			highlight = { enable = true },
 			indent = { enable = true },
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<leader>s",
-					node_incremental = "<leader>i",
-					node_decremental = "<leader>d",
-					scope_incremental = "<leader>c",
-				},
-			},
 		},
-	},
-	{
-		"quarto-dev/quarto-nvim",
-		ft = "quarto",
-		dependencies = {
-			"jmbuhr/otter.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
 	},
 	{
 		"lewis6991/satellite.nvim",
 		event = "VeryLazy",
 		opts = {},
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && yarn install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
 	},
 	{
 		"folke/snacks.nvim",
@@ -231,17 +183,17 @@ return {
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 			bigfile = { enabled = true },
-			dashboard = { enabled = true },
+			-- dashboard = { enabled = true },
 			-- explorer = { enabled = true },
 			-- indent = { enabled = true },
 			input = { enabled = true },
-			picker = { enabled = true },
+			-- picker = { enabled = true },
 			notifier = { enabled = true },
 			quickfile = { enabled = true },
-			scope = { enabled = true },
+			-- scope = { enabled = true },
 			-- scroll = { enabled = true },
 			-- statuscolumn = { enabled = true },
-			words = { enabled = true },
+			-- words = { enabled = true },
 		},
 	},
 }
