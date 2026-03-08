@@ -51,6 +51,14 @@ return {
 			vim.lsp.enable("lua_ls")
 
 			vim.lsp.enable("clangd")
+
+			if vim.fn.executable("sourcekit-lsp") == 1 then
+				vim.lsp.config("sourcekit", {
+					filetypes = { "swift" },
+				})
+				vim.lsp.enable("sourcekit")
+			end
+
 			vim.lsp.enable("marksman")
 
 			vim.lsp.config("ts_ls", {
