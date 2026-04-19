@@ -2,6 +2,7 @@
 add_newline = false
 
 format = """
+$conda\
 $time\
 $directory\
 $git_branch\
@@ -9,6 +10,12 @@ $git_status\
 $cmd_duration\
 \\$ 
 """
+
+[conda]
+symbol = '🐍'
+style = 'bold green'
+format = '[$symbol$environment]($style) '
+ignore_base = false
 
 [time]
 disabled = false
