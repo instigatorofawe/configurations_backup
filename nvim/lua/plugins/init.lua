@@ -154,6 +154,7 @@ return {
 				rust = { "rustfmt", lsp_format = "fallback" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
+                cuda = { "clang_format" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				svelte = { "prettier" },
