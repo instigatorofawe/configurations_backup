@@ -204,10 +204,20 @@ return {
 			-- words = { enabled = true },
 		},
 	},
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
-    }
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		-- lazy.nvim does not add a plugin to &rtp before running a *function* build
+		-- (only the ":cmd" build path calls Loader.load), so calling the autoload
+		-- function directly dies with E117 and the build "succeeds" in 0ms with no
+		-- binary in app/bin. Loading the plugin first makes it resolvable.
+		-- install() spawns a terminal job and returns, so lazy marks this build done
+		-- after ~10ms while the ~8s download is still running: quitting nvim in that
+		-- window aborts it, and lazy will not rebuild. Watch the split it opens.
+		build = function()
+			vim.cmd("Lazy load markdown-preview.nvim")
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 }
